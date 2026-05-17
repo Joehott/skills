@@ -1,5 +1,5 @@
 # SKILL LIBRARY — Business & Tax Brasil
-# Indice Geral | Versao: 1.0.0 | Criado: 2026-05-17
+# Indice Geral | Versao: 1.1.0 | Criado: 2026-05-17 | Atualizado: 2026-05-17
 # Sessao: sess_20260517_2226_biz | Autor: Joelson Hott
 # GitHub: https://github.com/Joehott/skills/tree/main/skills/business
 
@@ -7,16 +7,17 @@
 
 ## VISAO GERAL
 
-Esta biblioteca reune 11 arquivos (10 skills + 1 script Python) cobrindo
-analise de negocios, validacao de ideias, plano de negocios, tributacao brasileira
-completa e otimizacao fiscal para pessoa fisica. Destina-se a uso em chats
-especializados de mentoria, analise e planejamento empresarial.
+Esta biblioteca reune 15 arquivos cobrindo analise de negocios, validacao de ideias,
+plano de negocios, tributacao brasileira completa, otimizacao fiscal e ferramentas
+de integracao para agentes IA. Destina-se a uso em chats especializados de mentoria,
+analise e planejamento empresarial.
 
 ```
-TOTAL: ~213 KB de conhecimento estruturado
-ARQUIVOS: 10 skills (.md) + 1 script executavel (.py)
-LINHAS: ~4.900 linhas de conteudo
+TOTAL: ~293 KB de conhecimento estruturado
+ARQUIVOS: 10 skills (.md) + 2 scripts executaveis (.py) + 2 guias visuais (.html) + 1 router (.md)
+LINHAS: ~7.400 linhas de conteudo
 CNAE: 200+ codigos mapeados (script Python)
+TOKEN BUDGET: ~56K tokens total | ~10K tokens por sessao tipica (com roteamento)
 ```
 
 ---
@@ -156,7 +157,7 @@ Referencia completa de todos os 6 regimes:
 
 ## GRUPO 3 — TRIBUTACAO BRASILEIRA — EXPANSAO
 
-### 3.1 brazil_tax_obligations_calendar.md (TAREFA 1)
+### 3.1 brazil_tax_obligations_calendar.md
 **Tamanho:** 18.5 KB | **Drive:** `1huXNBoL7MIZyYjGA3Am6EhmGKZNpEPY3`
 **GitHub:** `skills/business/brazil_tax_obligations_calendar.md`
 
@@ -173,7 +174,7 @@ Calendario fiscal completo:
 
 ---
 
-### 3.2 brazil_tax_special_regimes.md (TAREFA 2)
+### 3.2 brazil_tax_special_regimes.md
 **Tamanho:** 21.6 KB | **Drive:** `1pOId5qtTtLa68gU-NLqP7qaTRubV81qD`
 **GitHub:** `skills/business/brazil_tax_special_regimes.md`
 
@@ -191,7 +192,7 @@ Regimes especiais e incentivos:
 
 ---
 
-### 3.3 brazil_tax_reform_2026_2032.md (TAREFA 3)
+### 3.3 brazil_tax_reform_2026_2032.md
 **Tamanho:** 21.9 KB | **Drive:** `1jiScpU62Zu_Rrtph80GC1Nk6_CJvCdhq`
 **GitHub:** `skills/business/brazil_tax_reform_2026_2032.md`
 
@@ -210,7 +211,7 @@ Guia completo da Reforma Tributaria (EC 132/2023 + LC 214/2025):
 
 ---
 
-### 3.4 brazil_tax_individual_optimization.md (TAREFA 4)
+### 3.4 brazil_tax_individual_optimization.md
 **Tamanho:** 22.0 KB | **Drive:** `1IiyHUJus1DO7aVtixuBgQ-OQDXPS2rHh`
 **GitHub:** `skills/business/brazil_tax_individual_optimization.md`
 
@@ -221,7 +222,7 @@ Otimizacao fiscal para pessoa fisica e socio:
 - Tabela comparativa pro-labore vs dividendo para cada faixa de renda
 - PGBL/VGBL: deducao 12% renda tributavel, tabela regressiva (10% apos 10 anos)
 - ITCMD progressivo 2027: urgencia de doacao em vida em 2026 (janela critica)
-- Holding familiar: quando vale a pena, estrutura, cláusulas de protecao
+- Holding familiar: quando vale a pena, estrutura, clausulas de protecao
 - VGBL para sucessao: fora do espolio, sem ITCMD (enquanto nao regulamentado)
 - Seguro de vida: isento IRPF e ITCMD
 - Simulador de carga fiscal: socio R$30K/mes = 1.8% carga, R$100K/mes = 10.5%
@@ -229,26 +230,19 @@ Otimizacao fiscal para pessoa fisica e socio:
 
 ---
 
-## GRUPO 4 — FERRAMENTAS
+## GRUPO 4 — FERRAMENTAS DE CONSULTA
 
-### 4.1 brazil_cnae_database.py (TAREFA 5)
-**Tamanho:** 30 KB | **Drive:** `1F1pwoWU_xXkXXRuPbqK6PaFXoeCA44w9`
+### 4.1 brazil_cnae_database.py
+**Tamanho:** 29.8 KB | **Drive:** `1F1pwoWU_xXkXXRuPbqK6PaFXoeCA44w9`
 **GitHub:** `skills/business/brazil_cnae_database.py`
 
-Script Python executavel — consulta CNAE × Regime × Aliquota:
+Script Python executavel — consulta CNAE x Regime x Aliquota:
 
 ```bash
-# Consultar CNAE especifico
-python3 brazil_cnae_database.py 6201500
-
-# Buscar por termo
-python3 brazil_cnae_database.py --search engenharia
-
-# Simular aliquota com Fator-R
+python3 brazil_cnae_database.py 6201500                                      # CNAE especifico
+python3 brazil_cnae_database.py --search engenharia                          # Busca por termo
 python3 brazil_cnae_database.py --simular --cnae 7112000 --faturamento 800000 --folha 250000
-
-# Listar todos os CNAEs vedados no Simples
-python3 brazil_cnae_database.py --list-vedados
+python3 brazil_cnae_database.py --list-vedados                               # CNAEs vedados
 ```
 
 Recursos:
@@ -259,22 +253,125 @@ Recursos:
 - CNAEs vedados com motivo de vedacao
 - Busca textual por descricao da atividade
 
+**IMPORTANTE:** Executar o script (~50 tokens output). NAO ler o fonte (7.4K tokens).
+
+---
+
+### 4.2 skills_loader.py
+**Tamanho:** 10.6 KB | **Drive:** `1XRg45CjMEHm_NFya_0YYE0GTz3gmBzrr`
+**GitHub:** `skills/business/skills_loader.py`
+
+Roteador de skills por query livre — determina quais arquivos carregar:
+
+```bash
+python3 skills_loader.py "abrir empresa TI simples nacional"   # recomenda 2-3 skills
+python3 skills_loader.py --load brazil_tax_regulatory          # imprime conteudo da skill
+python3 skills_loader.py --list                                # lista todas as skills
+python3 skills_loader.py --fetch brazil_tax_complete           # baixa do GitHub
+```
+
+Recursos:
+- Mapeamento de keywords por skill (150+ keywords indexadas)
+- Score ponderado: keywords longas (>8 chars) valem 2x
+- Retorna top-3 skills mais relevantes + tokens estimados
+- Fallback local → GitHub raw quando arquivo nao encontrado
+- Economia: ~50 tokens de output vs 56K carregar tudo
+
+---
+
+## GRUPO 5 — DOCUMENTACAO E INTEGRACAO
+
+### 5.1 AGENTS.md
+**Tamanho:** 3.6 KB | **Drive:** `1KR8ls9qReIu0Yv_Il4ofq6jrbvKVjxt-`
+**GitHub:** `skills/business/AGENTS.md`
+
+Instrucoes mestre para agentes IA — deve ser carregado SEMPRE primeiro:
+- Regra #1: nao carregar tudo (56K tokens = desperdicio)
+- Router situacao → arquivo(s) em formato de tabela
+- Instrucoes de execucao do CNAE script (executar, nao ler)
+- URLs GitHub raw para acesso remoto sem clone
+- Mapa rapido de arquivos com tokens por arquivo
+- Contexto de validacao: base legal ate 2026-05-17
+
+Uso: copiar como `CLAUDE.md` (Claude Code), `AGENTS.md` (Codex/OpenCode),
+ou colar como system prompt (Hermes/chat generico).
+
+---
+
+### 5.2 skill_library_overview.html
+**Tamanho:** 38 KB | **Drive:** `1GiZVqhFvs0YDAgrr67hJDW7qDDIibACA`
+**GitHub:** `skills/business/skill_library_overview.html`
+
+Visao geral visual da biblioteca (dark mode):
+- Hero com estatisticas da biblioteca (15 arquivos, 293 KB, 200+ CNAEs)
+- Como funciona: fluxo em 3 etapas
+- Cards de cada skill com descricao e tokens
+- Tabela de casos de uso por situacao
+- Roadmap de expansoes futuras
+
+---
+
+### 5.3 agent_integration_guide.html
+**Tamanho:** 27.9 KB | **Drive:** `1ZxKt_t_4wzogz3vymCzG8vEpK8t4jz_f`
+**GitHub:** `skills/business/agent_integration_guide.html`
+
+Guia tecnico de integracao por plataforma (dark mode GitHub-style):
+- Visualizacao de custo em tokens: barra 56K vs ~9K com roteamento (82% economia)
+- Arquitetura 3 camadas: AGENTS.md (915 tok) → Skills (2-8K tok) → Scripts (~50 tok)
+- Integracao Claude Code: padrao CLAUDE.md + clone do repo
+- Integracao Codex/OpenCode: AGENTS.md na raiz do projeto
+- Integracao Hermes/chat: colar como system prompt ou URLs raw do GitHub
+- Uso do skills_loader.py com exemplos de query
+- Tabela anti-padrao CNAE: ler fonte (7.4K) vs executar script (50 tokens)
+- Fluxo ideal de sessao com contagem de tokens passo a passo
+- Arvore completa de arquivos do repositorio
+
 ---
 
 ## REFERENCIAS EXTERNAS
 
 ```
-SISTEMA            | URL                                    | USO
--------------------|----------------------------------------|---------------------------
-GitHub Repo        | github.com/Joehott/skills              | Versionamento de todas as skills
-Google Drive       | Pasta ID: 1rUocPt6teyKFQeS7zjF5HH7F9nE32kd2 | Backup e acesso externo
-Notion Sessao      | notion.so (ver state.json)             | Documentacao e historico
-Receita Federal    | receita.fazenda.gov.br                 | Validar aliquotas vigentes
-Portal Simples SN  | receita.fazenda.gov.br/SimplesNacional | Calcular DAS oficial
-Reforma Tributaria | gov.br/reformatributaria               | CBS/IBS regulamentacao
-PGFN Transacao     | regularize.pgfn.gov.br                 | Negociar dividas PGFN
-eSocial            | esocial.gov.br                         | Folha de pagamento
-SPED               | sped.rfb.gov.br                        | ECD, ECF, EFD
+SISTEMA            | URL / ID                                        | USO
+-------------------|-------------------------------------------------|---------------------------
+GitHub Repo        | github.com/Joehott/skills                       | Versionamento de todas as skills
+GitHub Raw Base    | raw.githubusercontent.com/Joehott/skills/main/  | Acesso direto por agentes remotos
+Google Drive       | Pasta ID: 1rUocPt6teyKFQeS7zjF5HH7F9nE32kd2    | Backup e acesso externo
+Receita Federal    | receita.fazenda.gov.br                          | Validar aliquotas vigentes
+Portal Simples SN  | receita.fazenda.gov.br/SimplesNacional          | Calcular DAS oficial
+Reforma Tributaria | gov.br/reformatributaria                        | CBS/IBS regulamentacao
+PGFN Transacao     | regularize.pgfn.gov.br                          | Negociar dividas PGFN
+eSocial            | esocial.gov.br                                  | Folha de pagamento
+SPED               | sped.rfb.gov.br                                 | ECD, ECF, EFD
+```
+
+---
+
+## ARVORE DE ARQUIVOS
+
+```
+skills/business/
+├── AGENTS.md                           3.6 KB  | Router mestre para agentes IA
+├── INDEX.md                           (este arquivo)
+├── skills_loader.py                   10.6 KB  | Roteador CLI por query livre
+│
+├── business_analysis.md               9.1 KB  | SWOT, Porter, BCG, VRIO
+├── business_idea_validation.md       12.3 KB  | Lean Canvas, PMF, TAM/SOM
+├── business_plan_creation.md         12.8 KB  | Plano 8 secoes + Pitch Deck
+├── business_viability_calculation.md 13.6 KB  | VPL, TIR, Payback, Valuation
+│
+├── brazil_tax_regulatory.md          15.9 KB  | Regimes, tipos empresa, armadilhas
+├── brazil_tax_complete.md            32.8 KB  | 6 regimes detalhados (referencia)
+├── brazil_tax_obligations_calendar.md 18.5 KB | Calendario 2026, multas, sistemas
+├── brazil_tax_special_regimes.md     21.6 KB  | RET, REIDI, Lei do Bem, ZFM, PADIS
+├── brazil_tax_reform_2026_2032.md    21.9 KB  | CBS/IBS/IS, IRPF Minimo 2026-2033
+├── brazil_tax_individual_optim.md    22.0 KB  | Pro-labore, PGBL, ITCMD, holding
+│
+├── brazil_cnae_database.py           29.8 KB  | CNAE x Regime — EXECUTAR, nao ler
+│
+├── skill_library_overview.html       38.0 KB  | Visao geral visual da biblioteca
+└── agent_integration_guide.html      27.9 KB  | Guia de integracao por plataforma
+                                      -------
+TOTAL                                293.4 KB
 ```
 
 ---
@@ -298,4 +395,4 @@ INTEGRACAO FUTURA:
 
 ---
 
-*Indice gerado automaticamente em 2026-05-17 | sess_20260517_2226_biz*
+*Indice gerado em 2026-05-17 | Atualizado v1.1.0 em 2026-05-17 | sess_20260517_2226_biz*
